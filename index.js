@@ -2,16 +2,34 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 const fs = require("fs");
+const { getLink } = require("./api/bitlyApi");
 
+//Verify Status
 client.once("ready", () => {
   console.log("Ready!");
 });
 
 client.on("message", async (message) => {
-  let stream = await fs.createWriteStream("Text.txt", { flags: "a" });
-  let date = new Date();
-  stream.write(`createdAt: ${date}\nmessage: "${message.content}"\n\n`);
-  stream.end();
+  //If author is not OpenLinks && Channel not #Spam
+  if (message.author != config.botID && message.channel.id === config.spam) {
+    const channel = client.channels.cache.get("758912395170807849");
+    let stream = await fs.createWriteStream("logs.txt", { flags: "a" });
+
+    //Log content.
+    let content = `timestamp: ${message.createdAt}\nchannel: ${message.channel}\nmessage: "${message.content}"\n\n`;
+
+    stream.write(content);
+    stream.end();
+
+    //Filter Https links
+    if (message.content.startsWith("https")) {
+      getLink(message.content).then((res) => {
+        channel.send(`<${res}>`);
+      });
+    } else {
+      channel.send(content);
+    }
+  }
 });
 
 // login to Discord token
