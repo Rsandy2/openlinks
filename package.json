@@ -1,0 +1,23 @@
+{
+  "name": "openlinks",
+  "version": "1.0.0",
+  "description": "Discord Bot created to organize and condense book links in Openwing Discord.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rsandy2/openlinks.git"
+  },
+  "author": "Rsandy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rsandy2/openlinks/issues"
+  },
+  "homepage": "https://github.com/Rsandy2/openlinks#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "nodemon": "^2.0.6"
+  }
+}
