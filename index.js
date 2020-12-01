@@ -13,6 +13,7 @@ client.on("message", async (message) => {
   //If author is not OpenLinks && Channel not #Spam
   if (message.author != config.botID && message.channel.id === config.spam) {
     const channel = client.channels.cache.get("758912395170807849");
+    const logsChannel = client.channels.cache.get("783186826735124530");
     let stream = await fs.createWriteStream("logs.txt", { flags: "a" });
 
     //Log content.
@@ -27,7 +28,7 @@ client.on("message", async (message) => {
         channel.send(`<${res}>`);
       });
     } else {
-      channel.send(content);
+      logsChannel.send(content);
     }
   }
 });
