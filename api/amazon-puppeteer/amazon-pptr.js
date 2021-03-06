@@ -22,39 +22,23 @@ let amazon_get_link = async (link) => {
     /* Get buy new price*/
 
     /* Get price */
-    let price = document.body.querySelector("#price").innerText;
+    let price = document.body.querySelector("#newBuyBoxPrice").innerText;
+
+    // price = document.body.querySelector("#price").innerText;
 
     let collectedInfo = {
       bookName: name,
       bookImage: image,
       price: price,
     };
-    // return new Promise((resolve, reject) => {
-    //   resolve(collectedInfo);
-    // });
 
     return collectedInfo;
   });
-  // console.log(bookInfo);
-  //   amazon_get_link().then((res) => {
-  //     return res;
-  //   });
 
-  // bookInfo();
-  // console.log(bookInfo.bookName);
-  //   await browser.close();
   return bookInfo;
+
+  await browser.close();
 };
-
-// console.log(
-//   amazon_get_link(
-//     "https://www.amazon.com/Programmers-Guide-Computer-Science-self-taught/dp/195120400X/ref=sr_1_7?dchild=1&keywords=computer+science+books&qid=1612509797&sr=8-7"
-//   )
-// );
-
-// amazon_get_link(
-//   "https://www.amazon.com/Programmers-Guide-Computer-Science-self-taught/dp/195120400X/ref=sr_1_7?dchild=1&keywords=computer+science+books&qid=1612509797&sr=8-7"
-// );
 
 module.exports = {
   amazon_get_link,

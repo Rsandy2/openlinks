@@ -1,12 +1,12 @@
 const embedData = {
-  color: 0x0099ff,
+  color: 0xe4e2de,
   title: "",
   url: "",
 
   image: {
     url: "https://i.imgur.com/wSTFkRM.png",
   },
-  description: "Current listing price: ",
+  description: "",
   timestamp: new Date(),
 };
 

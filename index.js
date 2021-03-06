@@ -15,15 +15,15 @@ client.once("ready", () => {
 
 client.on("message", async (message) => {
   //If author is not OpenLinks && Channel not #Spam
-  if (
-    message.author != config.botID &&
-    message.channel.id === config.spam_admin
-  ) {
+  if (message.author != config.botID && message.channel.id === config.spam) {
     //Variations of channels to reference.
     const channel = client.channels.cache.get("758912395170807849");
     const logsChannel = client.channels.cache.get("783186826735124530");
     const adminChannel = client.channels.cache.get("807129782567305287");
 
+    if (message.content === "TEST") {
+      channel.send("Online");
+    }
     //Filter Https links
     if (message.content.startsWith("https") && message.author != config.botID) {
       /* Delete message of previous link*/
@@ -36,9 +36,13 @@ client.on("message", async (message) => {
           // console.log(val.bookImage);
           embed.embedData["title"] = val.bookName;
           embed.embedData["url"] = res;
+          console.log(val);
           embed.embedData["image"]["url"] = val.bookImage;
-          embed.embedData["description"] += val.price;
-          adminChannel.send({ embed: embed.embedData });
+          embed.embedData[
+            "description"
+          ] = `Current listing price: ${val.price}`;
+
+          channel.send({ embed: embed.embedData });
         });
 
         console.log(res);
@@ -47,6 +51,11 @@ client.on("message", async (message) => {
         // channel.send(`<${res}>`);
       });
     }
+    let content = `timestamp: ${message.createdAt}
+channel: ${message.channel}
+user: ${message.author.tag}
+message: "${message.content}"\n\n`;
+    logsChannel.send(content);
   }
 });
 
