@@ -1,5 +1,6 @@
 const embedData = {
-  color: 0xe4e2de,
+  // color: 0xe4e2de,
+  color: "",
   title: "",
   url: "",
 

@@ -1,0 +1,5 @@
+const channel = {
+     channel : client.channels.cache.get("758912395170807849"),
+     logsChannel : client.channels.cache.get("783186826735124530"),
+     adminChannel : client.channels.cache.get("807129782567305287"),
+}

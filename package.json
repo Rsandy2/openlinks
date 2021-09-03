@@ -4,7 +4,8 @@
   "description": "Discord Bot created to organize and condense book links in Openwing Discord.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -15,8 +16,12 @@
   "bugs": {
     "url": "https://github.com/Rsandy2/openlinks/issues"
   },
+  "engines": {
+    "node": "14.x"
+  },
   "homepage": "https://github.com/Rsandy2/openlinks#readme",
   "dependencies": {
+    "colorthief": "^2.3.2",
     "discord.js": "^12.5.1",
     "nodemon": "^2.0.7",
     "puppeteer": "^7.0.1"
